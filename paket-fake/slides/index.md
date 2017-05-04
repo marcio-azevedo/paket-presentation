@@ -1,4 +1,4 @@
-- title : [Brown-Bag Session] Dependency Management done right!
+- title : Dependency Management done right!
 - description : Introduction to PAKET
 - author : Márcio Azevedo
 - theme : night
@@ -15,11 +15,11 @@
 
 <br />
 <br />
-Márcio Azevedo - [https://github.com/marcio-azevedo](https://github.com/marcio-azevedo/)
+Márcio Azevedo - [marcio-azevedo](https://github.com/marcio-azevedo/)
 
 ***
 
-### Modern mobile app development?
+### Introduction to PAKET
 
 * UI/UX
     * "Native mobile apps"
