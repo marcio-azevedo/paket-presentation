@@ -50,9 +50,52 @@ Note: NuGet (the command tool) works well for simple, small projects, not for co
 > enables referencing files directly from Git repositories or any HTTP resource.
 > It enables **precise and predictable control** over what packages the projects within your application reference.
 
+---
+
+![PAKET](images/paket-logo.png)
+
+### Some References
+
+* [ElasticSearch.NET](https://github.com/elastic/elasticsearch-net) uses this in their .NET tools and libraries
+* [Jet.com](https://github.com/jet/kafunk) (recently acquired by Walmart by 3bn $)
+
+***
+
+### Why PAKET?
+
+<br />
+
+### PAKET offers **predictable control** over references with NuGet!
+
+#### Here's some problems with NuGet command tool
+
+---
+
+#### NuGet has no concept of transitive dependencies
+
+<img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=500 />
+
+---
+
+#### NuGet puts the package version in the path
+
+<img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=450 />
+
+---
+
+#### Updates may require manual work (specially if you update framework)
+
+![PAKET](images/csproj-references.png)
+
 ***
 
 #### Main components
+
+* paket.exe (~/.paket directory in root)
+* paket.dependencies (in solution root) - Global definition of dependencies
+* paket.lock (generated from paket install) - List of used versions for all dependencies
+* paket.references (in each project folder) - Dependency definition per project, "replaces" packages.config
+* paket.template - Package definition for new packages
 
 ***
 
