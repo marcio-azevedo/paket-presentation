@@ -71,25 +71,109 @@ But then, there was a new problem...
 <img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=450 />
 <img src="images/package-version-in-path1.png" style="background: transparent; border-style: none;" width=450 />
 
-' Problems: path to packages changes at every update, code reviews are harder because you're always updating csproj files, etc
+' Problems: path to packages changes at every update, code reviews are harder because you're always updating .csproj files, etc
 
 ---
 
 ### Updates may require manual work (specially if you update framework)
 
-![PAKET](images/csproj-references.png)
+![NuGet](images/csproj-references.png)
+
+How PAKET does it:
+
+![PAKET](images/csproj-paket-references.png)
 
 ' Neither Visual Studio neither NuGet are clever to update it when you change the project Framework.
 
 ***
 
-#### Main components
+### paket.bootstrapper.exe
 
-* paket.exe (~/.paket directory in root)
-* paket.dependencies (in solution root) - Global definition of dependencies
-* paket.lock (generated from paket install) - List of used versions for all dependencies
-* paket.references (in each project folder) - Dependency definition per project, "replaces" packages.config
-* paket.template - Package definition for new packages
+* Don't need to commit paket.exe to your repository
+* Bootstrapper is available for download - [Bootstrapper](https://github.com/fsprojects/Paket/releases/latest)
+* Bootstrapper allows to download latest paket.exe
+* Can be used for CI build or from inside Visual Studio
+
+![Bootstrapper](images/paket.bootstrapper.exe.png)
+
+' Main components
+
+---
+
+### Paket.exe
+(~/.paket directory in root)
+
+> .paket\paket.exe --help
+
+    add <options>        Adds a new package to your paket.dependencies file
+    find-refs <options>  Finds all project files with package installed
+    init <options>       Creates an empty paket.dependencies in working directory
+    install <options>    Download the dependencies in paket.dependencies or paket.lock
+    outdated <options>   Lists all dependencies that have newer versions available
+    remove <options>     Removes package from paket.dependencies and paket.references
+    restore <options>    Download the dependencies in paket.lock
+    update <options>     Update one or all dependencies
+
+' Bootstrapping - Don't commit paket.exe to your repository
+' Bootstrapper is available for download - https://github.com/fsprojects/Paket/releases/latest
+' Bootstrapper allows to download latest paket.exe
+' Can be used for CI build or from inside Visual Studio
+
+---
+
+### Global definition of dependencies
+**paket.dependencies** (in solution root)
+
+    source https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+
+    // Reference a nuget package
+    nuget FSharp.Management
+    // Reference a single file from GitHub
+    github myRepo/aProject dependency.dll 
+
+    // Shared dependencies
+    nuget Newtonsoft.Json
+    nuget FSharp.Core
+
+    group Web
+        nuget Fake.IIS
+        nuget Suave
+
+    group Database
+        nuget FluentMigrator
+        nuget SQLProvider
+
+---
+
+### List of used versions for all dependencies
+**paket.lock** (generated from paket install)
+
+    NUGET
+      remote: https://api.nuget.org/v3/index.json
+        Microsoft.Bcl (1.1.9) - framework: >= net45
+          Microsoft.Bcl.Build (>= 1.0.14)
+        Microsoft.Bcl.Build (1.0.21) - import_targets: false, framework: >= net45
+        Microsoft.Net.Http (2.2.28) - framework: >= net45
+          Microsoft.Bcl (>= 1.1.9)
+          Microsoft.Bcl.Build (>= 1.0.14)
+        NuGet.CommandLine (3.5)
+
+---
+
+### Dependency definition per project ("replaces" packages.config)
+**paket.references** (in each project folder)
+
+    Microsoft.Net.Http
+    Newtonsoft.Json
+
+---
+
+### Package definition for new packages
+**paket.template**
+
+***
+
+asdf
 
 ***
 
