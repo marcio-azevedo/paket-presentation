@@ -38,7 +38,8 @@ Note: NuGet (the command tool) works well for simple, small projects, not for co
 
 ### So, how can we solve it!?
 
-![funny pic](images/solution.gif)
+![funny pic](images/RequestForComment.gif)
+<!--![funny pic](images/solution.gif)-->
 
 ***
 
