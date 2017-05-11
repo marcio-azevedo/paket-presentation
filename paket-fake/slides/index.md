@@ -61,13 +61,15 @@ But then, there was a new problem...
 ' Here's some problems with NuGet command tool
 ### NuGet (the command tool) has no concept of transitive dependencies
 
-<img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=500 />
+<img src="images/masstransit-dependencies.png" style="background: transparent; border-style: none;" width=300 />
+<img src="images/package.config.png" style="background: transparent; border-style: none;" width=300 />
 
 ---
 
 ### NuGet puts the package version in the path
 
 <img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=450 />
+<img src="images/package-version-in-path1.png" style="background: transparent; border-style: none;" width=450 />
 
 ' Problems: path to packages changes at every update, code reviews are harder because you're always updating csproj files, etc
 
@@ -78,15 +80,6 @@ But then, there was a new problem...
 ![PAKET](images/csproj-references.png)
 
 ' Neither Visual Studio neither NuGet are clever to update it when you change the project Framework.
-
----
-
-![PAKET](images/paket-logo.png)
-
-### Some References
-
-* [ElasticSearch.NET](https://github.com/elastic/elasticsearch-net) uses this in their .NET tools and libraries
-* [Jet.com](https://github.com/jet/kafunk) (e-commerce platform recently acquired by Walmart by 3bn $)
 
 ***
 
@@ -100,6 +93,49 @@ But then, there was a new problem...
 
 ***
 
-### Thank you!
+![PAKET](images/paket-logo.png)
 
-* https://github.com/marcio-azevedo/presentations
+### Some References
+
+* [ElasticSearch.NET](https://github.com/elastic/elasticsearch-net) uses this in their .NET tools and libraries
+* [Jet.com](https://github.com/jet/kafunk) (e-commerce platform recently acquired by Walmart by 3bn $)
+
+---
+
+![PAKET](images/demo.jpeg)
+
+---
+
+### RECAP
+
+* Plain text over Command line tool
+* Direct vs. transitive dependencies
+* Only one version of a package
+
+There's also a VS extension - [Paket.VisualStudio](https://github.com/hmemcpy/Paket.VisualStudio)
+
+![PAKET](images/paket-visualstudio.png)
+
+---
+
+#### Paket - Project Principles:
+
+* Integrate well into the existing NuGet ecosystem
+* Make things work with minimal tooling (plain text files)
+* Make it work on all platforms
+* Automate everything
+* Create a nice community
+
+![PAKET](images/qa.jpeg)
+
+***
+
+## Thank you!
+
+* Presentation Source: https://github.com/marcio-azevedo/presentations
+* Gists: https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212
+
+* References:
+    * https://fsprojects.github.io/Paket/
+    * https://russcam.github.io/paket-fake-talk/#/intro
+    * http://forki.github.io/PaketIntro/#/
