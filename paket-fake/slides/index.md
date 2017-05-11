@@ -97,6 +97,7 @@ How PAKET does it:
 ![Bootstrapper](images/paket.bootstrapper.exe.png)
 
 ' Main components
+' http://fsprojects.github.io/Paket/paket-simplify.html#Sample
 
 ---
 
