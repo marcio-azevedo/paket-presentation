@@ -20,7 +20,9 @@
 
 ***
 
-Back in the old days there was the ~\Libs\ folder...
+Back in the old days...
+
+' there was the ~\Libs\ folder
 
 ![Lib folder](images/lib-folder.png)
 
@@ -28,28 +30,54 @@ Back in the old days there was the ~\Libs\ folder...
 
 --- 
 
-But then, there was a new problem, instead of DLL Hell, there was
+But then, there was a new problem...
+' instead of DLL Hell, there was
 
 <img src="images/nuget-hell.png" style="background: transparent; border-style: none;" width=450 />
 
-Note: NuGet (the command tool) works well for simple, small projects, not for complex and large ones!
+' Note: NuGet (the command tool) works well for simple, small projects, not for complex and large ones!
 
 ---
 
-### So, how can we solve it!?
+### So, what's the solution!?
 
 ![funny pic](images/RequestForComment.gif)
 <!--![funny pic](images/solution.gif)-->
 
 ***
 
+### PAKET
+#### Dependency Manager for .NET (and Mono)
 ![PAKET](images/paket-logo.png)
-
-#### PAKET - Dependency Manager for .NET (and Mono)
 
 > **designed to work well with NuGet packages** and also
 > enables referencing files directly from Git repositories or any HTTP resource.
+' Why PAKET?
+' PAKET offers **predictable control** over references with NuGet!
 > It enables **precise and predictable control** over what packages the projects within your application reference.
+
+---
+
+' Here's some problems with NuGet command tool
+### NuGet (the command tool) has no concept of transitive dependencies
+
+<img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=500 />
+
+---
+
+### NuGet puts the package version in the path
+
+<img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=450 />
+
+' Problems: path to packages changes at every update, code reviews are harder because you're always updating csproj files, etc
+
+---
+
+### Updates may require manual work (specially if you update framework)
+
+![PAKET](images/csproj-references.png)
+
+' Neither Visual Studio neither NuGet are clever to update it when you change the project Framework.
 
 ---
 
@@ -58,35 +86,7 @@ Note: NuGet (the command tool) works well for simple, small projects, not for co
 ### Some References
 
 * [ElasticSearch.NET](https://github.com/elastic/elasticsearch-net) uses this in their .NET tools and libraries
-* [Jet.com](https://github.com/jet/kafunk) (recently acquired by Walmart by 3bn $)
-
-***
-
-### Why PAKET?
-
-<br />
-
-### PAKET offers **predictable control** over references with NuGet!
-
-#### Here's some problems with NuGet command tool
-
----
-
-#### NuGet has no concept of transitive dependencies
-
-<img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=500 />
-
----
-
-#### NuGet puts the package version in the path
-
-<img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=450 />
-
----
-
-#### Updates may require manual work (specially if you update framework)
-
-![PAKET](images/csproj-references.png)
+* [Jet.com](https://github.com/jet/kafunk) (e-commerce platform recently acquired by Walmart by 3bn $)
 
 ***
 
