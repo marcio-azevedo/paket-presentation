@@ -101,24 +101,25 @@ How PAKET does it:
 
 ---
 
-### Paket.exe
-(~/.paket directory in root)
+### Paket.exe (~/.paket directory in root)
 
-> .paket\paket.exe --help
+```sh
+$ .paket\paket.exe --help
+```
 
-    add <options>        Adds a new package to your paket.dependencies file
-    find-refs <options>  Finds all project files with package installed
-    init <options>       Creates an empty paket.dependencies in working directory
-    install <options>    Download the dependencies in paket.dependencies or paket.lock
-    outdated <options>   Lists all dependencies that have newer versions available
-    remove <options>     Removes package from paket.dependencies and paket.references
-    restore <options>    Download the dependencies in paket.lock
-    update <options>     Update one or all dependencies
+<img src="images/paket-cmds.png" style="background: transparent; border-style: none;" width=600 />
 
 ' Bootstrapping - Don't commit paket.exe to your repository
 ' Bootstrapper is available for download - https://github.com/fsprojects/Paket/releases/latest
 ' Bootstrapper allows to download latest paket.exe
 ' Can be used for CI build or from inside Visual Studio
+
+---
+
+' Show convertion from NuGet
+
+http://fsprojects.github.io/Paket/paket-convert-from-nuget.html
+https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212
 
 ---
 
