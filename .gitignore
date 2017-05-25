@@ -178,6 +178,7 @@ nuget/*.nupkg
 */paket.exe
 */.paket/paket.exe
 .paket/paket.exe
+*/.paket/paket.exe
 output
 paket-files
 release.cmd
