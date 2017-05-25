@@ -175,7 +175,9 @@ TestResults.xml
 
 # Nuget outputs
 nuget/*.nupkg
-paket/.paket/paket.exe
+*/paket.exe
+*/.paket/paket.exe
+.paket/paket.exe
 output
 paket-files
 release.cmd
