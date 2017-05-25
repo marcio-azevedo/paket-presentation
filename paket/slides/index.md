@@ -85,6 +85,14 @@ How PAKET does it:
 
 ' Neither Visual Studio neither NuGet are clever to update it when you change the project Framework.
 
+---
+
+### Paket fully supports Semantic Versioning, and, currently, NuGet doesn’t (NuGet currently only supports SemVer 1.0.0).
+
+https://github.com/NuGet/Home/wiki/SemVer-2.0.0-support
+
+https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages#semantic-versioning
+
 ***
 
 ### paket.bootstrapper.exe
