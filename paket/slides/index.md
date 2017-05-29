@@ -98,7 +98,7 @@ Plan to implement [SemVer 2.0.0 support](https://github.com/NuGet/Home/wiki/SemV
 
 ***
 
-### paket.bootstrapper.exe
+#### PAKET is composed by _paket.bootstrapper.exe_
 
 * Don't need to commit paket.exe to your repository
 * Bootstrapper is available for download - [Bootstrapper](https://github.com/fsprojects/Paket/releases/latest)
@@ -119,14 +119,6 @@ $ .paket\paket.exe --help
 ```
 
 <img src="images/paket-cmds.png" style="background: transparent; border-style: none;" width=600 />
-
----
-
-' Show convertion from NuGet
-
-[Convert from NuGet](http://fsprojects.github.io/Paket/paket-convert-from-nuget.html)
-
-[GIST](https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212)
 
 ---
 
@@ -178,11 +170,18 @@ $ .paket\paket.exe --help
 ---
 
 ### Package definition for new packages
-**paket.template**
+**paket.template** replaces the need for nuspec file
 
-***
+    type file
+    id Test.Paket.Package
+    version 1.0
+    authors Márcio Azevedo
+    description
+        description of this test package
+    files
+        src/Test.Paket.Package/bin/Debug ==> lib
 
-asdf
+[Detailed options](https://fsprojects.github.io/Paket/template-files.html)
 
 ***
 
@@ -193,11 +192,20 @@ asdf
 * [ElasticSearch.NET](https://github.com/elastic/elasticsearch-net) uses this in their .NET tools and libraries
 * [Jet.com](https://github.com/jet/kafunk) (e-commerce platform recently acquired by Walmart by 3bn $)
 
----
+***
+
+' #### Convert from NuGet command
+' [Convert from NuGet command](http://fsprojects.github.io/Paket/paket-convert-from-nuget.html)
+' ![convert-changes01](images/convert-changes01.png)
+' ![convert-changes02](images/convert-changes02.png)
+' ![convert-changes03](images/convert-changes03.png)
+' [Here's a tutorial](https://fsprojects.github.io/Paket/convert-from-nuget-tutorial.html)
+
+### DEMO
 
 ![PAKET](images/demo.jpeg)
 
----
+***
 
 ### RECAP
 
@@ -207,10 +215,12 @@ asdf
 
 There's also a VS extension - [Paket.VisualStudio](https://github.com/hmemcpy/Paket.VisualStudio)
 
-![PAKET](images/paket-visualstudio.png)
+' ![PAKET](images/paket-visualstudio.png)
+<img src="images/paket-visualstudio.png" style="background: transparent; border-style: none;" width=600 />
 
 ---
 
+## Q&A
 #### Paket - Project Principles:
 
 * Integrate well into the existing NuGet ecosystem
@@ -219,14 +229,14 @@ There's also a VS extension - [Paket.VisualStudio](https://github.com/hmemcpy/Pa
 * Automate everything
 * Create a nice community
 
-![PAKET](images/qa.jpeg)
+' ![PAKET](images/qa.jpeg)
 
 ***
 
 ## Thank you!
 
-* Presentation Source: https://github.com/marcio-azevedo/presentations
-* Gists: https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212
+* [Presentation Source](https://github.com/marcio-azevedo/presentations/tree/master/paket) based on [FsReveal](https://github.com/fsprojects/FsReveal)
+* [Gists](https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212)
 
 * References:
     * https://fsprojects.github.io/Paket/
