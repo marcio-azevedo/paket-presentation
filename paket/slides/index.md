@@ -31,10 +31,11 @@ Back in the old days...
 --- 
 
 But then, there was a new problem...
-' instead of DLL Hell, there was
 
 <img src="images/nuget-hell.png" style="background: transparent; border-style: none;" width=450 />
 
+' instead of DLL Hell, there was...
+' ...and it's still a problem as we know at Basecone...
 ' Note: NuGet (the command tool) works well for simple, small projects, not for complex and large ones!
 
 ---
@@ -87,11 +88,13 @@ How PAKET does it:
 
 ---
 
-### Paket fully supports Semantic Versioning, and, currently, NuGet doesn’t (NuGet currently only supports SemVer 1.0.0).
+#### Paket fully supports Semantic Versioning, and, currently, NuGet doesn’t (NuGet currently only supports SemVer 1.0.0).
 
-https://github.com/NuGet/Home/wiki/SemVer-2.0.0-support
+> NuGet does not support SemVer-compatible (v2.0.0) prerelease numbers with dot notation, as in 1.0.1-build.23. You can use a form like 1.0.1-build23 but this is always considered a pre-release version.
 
-https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages#semantic-versioning
+in [PreRelease Semantic Versioning](https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages#semantic-versioning)
+
+Plan to implement [SemVer 2.0.0 support](https://github.com/NuGet/Home/wiki/SemVer-2.0.0-support)
 
 ***
 
@@ -117,17 +120,13 @@ $ .paket\paket.exe --help
 
 <img src="images/paket-cmds.png" style="background: transparent; border-style: none;" width=600 />
 
-' Bootstrapping - Don't commit paket.exe to your repository
-' Bootstrapper is available for download - https://github.com/fsprojects/Paket/releases/latest
-' Bootstrapper allows to download latest paket.exe
-' Can be used for CI build or from inside Visual Studio
-
 ---
 
 ' Show convertion from NuGet
 
-http://fsprojects.github.io/Paket/paket-convert-from-nuget.html
-https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212
+[Convert from NuGet](http://fsprojects.github.io/Paket/paket-convert-from-nuget.html)
+
+[GIST](https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212)
 
 ---
 
