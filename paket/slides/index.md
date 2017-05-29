@@ -31,10 +31,11 @@ Back in the old days...
 --- 
 
 But then, there was a new problem...
-' instead of DLL Hell, there was
 
 <img src="images/nuget-hell.png" style="background: transparent; border-style: none;" width=450 />
 
+' instead of DLL Hell, there was...
+' ...and it's still a problem as we know at Basecone...
 ' Note: NuGet (the command tool) works well for simple, small projects, not for complex and large ones!
 
 ---
@@ -85,9 +86,19 @@ How PAKET does it:
 
 ' Neither Visual Studio neither NuGet are clever to update it when you change the project Framework.
 
+---
+
+#### Paket fully supports Semantic Versioning, and, currently, NuGet doesn’t (NuGet currently only supports SemVer 1.0.0).
+
+> NuGet does not support SemVer-compatible (v2.0.0) prerelease numbers with dot notation, as in 1.0.1-build.23. You can use a form like 1.0.1-build23 but this is always considered a pre-release version.
+
+in [PreRelease Semantic Versioning](https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages#semantic-versioning)
+
+Plan to implement [SemVer 2.0.0 support](https://github.com/NuGet/Home/wiki/SemVer-2.0.0-support)
+
 ***
 
-### paket.bootstrapper.exe
+#### PAKET is composed by _paket.bootstrapper.exe_
 
 * Don't need to commit paket.exe to your repository
 * Bootstrapper is available for download - [Bootstrapper](https://github.com/fsprojects/Paket/releases/latest)
@@ -108,18 +119,6 @@ $ .paket\paket.exe --help
 ```
 
 <img src="images/paket-cmds.png" style="background: transparent; border-style: none;" width=600 />
-
-' Bootstrapping - Don't commit paket.exe to your repository
-' Bootstrapper is available for download - https://github.com/fsprojects/Paket/releases/latest
-' Bootstrapper allows to download latest paket.exe
-' Can be used for CI build or from inside Visual Studio
-
----
-
-' Show convertion from NuGet
-
-http://fsprojects.github.io/Paket/paket-convert-from-nuget.html
-https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212
 
 ---
 
@@ -171,11 +170,18 @@ https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212
 ---
 
 ### Package definition for new packages
-**paket.template**
+**paket.template** replaces the need for nuspec file
 
-***
+    type file
+    id Test.Paket.Package
+    version 1.0
+    authors Márcio Azevedo
+    description
+        description of this test package
+    files
+        src/Test.Paket.Package/bin/Debug ==> lib
 
-asdf
+[Detailed options](https://fsprojects.github.io/Paket/template-files.html)
 
 ***
 
@@ -186,11 +192,20 @@ asdf
 * [ElasticSearch.NET](https://github.com/elastic/elasticsearch-net) uses this in their .NET tools and libraries
 * [Jet.com](https://github.com/jet/kafunk) (e-commerce platform recently acquired by Walmart by 3bn $)
 
----
+***
+
+' #### Convert from NuGet command
+' [Convert from NuGet command](http://fsprojects.github.io/Paket/paket-convert-from-nuget.html)
+' ![convert-changes01](images/convert-changes01.png)
+' ![convert-changes02](images/convert-changes02.png)
+' ![convert-changes03](images/convert-changes03.png)
+' [Here's a tutorial](https://fsprojects.github.io/Paket/convert-from-nuget-tutorial.html)
+
+### DEMO
 
 ![PAKET](images/demo.jpeg)
 
----
+***
 
 ### RECAP
 
@@ -200,10 +215,12 @@ asdf
 
 There's also a VS extension - [Paket.VisualStudio](https://github.com/hmemcpy/Paket.VisualStudio)
 
-![PAKET](images/paket-visualstudio.png)
+' ![PAKET](images/paket-visualstudio.png)
+<img src="images/paket-visualstudio.png" style="background: transparent; border-style: none;" width=600 />
 
 ---
 
+## Q&A
 #### Paket - Project Principles:
 
 * Integrate well into the existing NuGet ecosystem
@@ -212,14 +229,14 @@ There's also a VS extension - [Paket.VisualStudio](https://github.com/hmemcpy/Pa
 * Automate everything
 * Create a nice community
 
-![PAKET](images/qa.jpeg)
+' ![PAKET](images/qa.jpeg)
 
 ***
 
 ## Thank you!
 
-* Presentation Source: https://github.com/marcio-azevedo/presentations
-* Gists: https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212
+* [Presentation Source](https://github.com/marcio-azevedo/presentations/tree/master/paket) based on [FsReveal](https://github.com/fsprojects/FsReveal)
+* [Gists](https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212)
 
 * References:
     * https://fsprojects.github.io/Paket/
