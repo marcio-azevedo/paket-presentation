@@ -40,7 +40,7 @@ But then, there was a new problem...
 
 ---
 
-### So, what's the solution!?
+## So, what's the solution!?
 
 ![funny pic](images/RequestForComment.gif)
 <!--![funny pic](images/solution.gif)-->
