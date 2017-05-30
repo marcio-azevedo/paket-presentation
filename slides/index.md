@@ -16,7 +16,7 @@
 <br />
 <br />
 
-[Márcio Azevedo](https://github.com/marcio-azevedo/presentations/)
+[Márcio Azevedo](https://marcio-azevedo.github.io/paket-presentation/)
 
 ***
 
@@ -235,7 +235,7 @@ There's also a VS extension - [Paket.VisualStudio](https://github.com/hmemcpy/Pa
 
 ## Thank you!
 
-* [Presentation Source](https://github.com/marcio-azevedo/presentations/tree/master/paket) based on [FsReveal](https://github.com/fsprojects/FsReveal)
+* [Presentation Source](https://github.com/marcio-azevedo/paket-presentation/) based on [FsReveal](https://github.com/fsprojects/FsReveal)
 * [Gists](https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212)
 
 * References:
