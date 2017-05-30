@@ -16,7 +16,7 @@
 <br />
 <br />
 
-[Márcio Azevedo](https://marcio-azevedo.github.io/paket-presentation/default/)
+[Márcio Azevedo](https://github.com/marcio-azevedo)
 
 ***
 
