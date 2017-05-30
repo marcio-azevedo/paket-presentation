@@ -12,9 +12,9 @@
 let gitOwner = "marcio-azevedo"
 let gitHome = "https://github.com/" + gitOwner
 // The name of the project on GitHub
-let gitProjectName = "marcio-azevedo.github.io"
+let gitProjectName = "presentations"
 // The name of the GitHub repo subdirectory to publish slides to
-let gitSubDir = "presentations/paket"
+let gitSubDir = "paket"
 
 open FsReveal
 open Fake
