@@ -1,5 +1,5 @@
 - title : Dependency Management done right!
-- description : Introduction to PAKET
+- description : Dependency Management done right
 - author : Márcio Azevedo
 - theme : night
 - transition : default
