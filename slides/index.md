@@ -185,7 +185,7 @@ $ .paket\paket.exe --help
 ---
 
 ### Package definition for new packages
-**paket.template** replaces the need for nuspec file
+**paket.template** replaces the need for .nuspec file
 
     type file
     id Test.Paket.Package
@@ -219,6 +219,8 @@ $ .paket\paket.exe --help
 ### DEMO
 
 ![PAKET](images/demo.jpeg)
+
+[Gists](https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212)
 
 ***
 
