@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Dependency Management done right!</title>
-    <meta name="description" content="Introduction to PAKET">
+    <meta name="description" content="Dependency Management done right">
     <meta name="author" content="Márcio Azevedo">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -60,7 +60,7 @@
 <h3>Introduction to PAKET!</h3>
 <br />
 <br />
-<p><a href="https://marcio-azevedo.github.io/paket-presentation/">Márcio Azevedo</a></p>
+<p><a href="https://github.com/marcio-azevedo">Márcio Azevedo</a></p>
 </section>
 <section >
 <section >
@@ -73,17 +73,17 @@ there was the ~\Libs\ folder<br/>
 </section>
 <section >
 <p>But then, there was a new problem...</p>
-<img src="images/nuget-hell.png" style="background: transparent; border-style: none;" width=450 />
+<!--<img src="images/nuget-hell.png" style="background: transparent; border-style: none;" width=450 />-->
+<p><img src="images/nuget-hell.png" alt="NuGetHell" /></p>
 <aside class="notes">
 instead of DLL Hell, there was...<br/>
 ...and it's still a problem as we know at Basecone...<br/>
 Note: NuGet (the command tool) works well for simple, small projects, not for complex and large ones!<br/>
 </aside>
 </section>
-<section >
-<h2>So, what's the solution!?</h2>
-<p><img src="images/RequestForComment.gif" alt="funny pic" />
-<!--![funny pic](images/solution.gif)--></p>
+<section data-background="images/RequestForComment.gif">
+<h1>So, what's the solution!?</h1>
+<!-- ![funny pic](images/RequestForComment.gif) -->
 </section>
 </section>
 <section >
@@ -105,22 +105,25 @@ It enables <strong>precise and predictable control</strong> over what packages t
 <aside class="notes">
 Here's some problems with NuGet command tool<br/>
 </aside>
+<h2>Known problems</h2>
 <h3>NuGet (the command tool) has no concept of transitive dependencies</h3>
 <img src="images/masstransit-dependencies.png" style="background: transparent; border-style: none;" width=300 />
-<img src="images/package.config.png" style="background: transparent; border-style: none;" width=300 />
+<img src="images/package.config.png" style="background: transparent; border-style: none;" width=550 />
 </section>
 <section >
 <h3>NuGet puts the package version in the path</h3>
 <img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=450 />
 <img src="images/package-version-in-path1.png" style="background: transparent; border-style: none;" width=450 />
 <aside class="notes">
-Problems: path to packages changes at every update, code reviews are harder because you're always updating .csproj files, etc<br/>
+Problems: - path to packages changes at every update<br/>
+- code reviews are harder because you're always updating .csproj files<br/>
+- makes it very easy to have several versions of the same package in the same solution<br/>
 </aside>
 </section>
 <section >
 <h3>Updates may require manual work (specially if you update framework)</h3>
 <p><img src="images/csproj-references.png" alt="NuGet" /></p>
-<p>How PAKET does it:</p>
+<p>How PAKET does it?</p>
 <p><img src="images/csproj-paket-references.png" alt="PAKET" /></p>
 <aside class="notes">
 Neither Visual Studio neither NuGet are clever to update it when you change the project Framework.<br/>
@@ -148,14 +151,17 @@ Neither Visual Studio neither NuGet are clever to update it when you change the 
 <aside class="notes">
 Main components<br/>
 http://fsprojects.github.io/Paket/paket-simplify.html#Sample<br/>
+open example C:\code\Basecone-BackOffice\.paket<br/>
 </aside>
 </section>
 <section >
-<h3>Paket.exe (~/.paket directory in root)</h3>
+<h4>Paket.exe (.paket directory in root)</h4>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip"><code lang="sh">$ .paket\paket.exe --help
 </code></pre></td></tr></table>
+<p><a href="https://fsprojects.github.io/Paket//paket-add.html">PAKET Commands</a></p>
+<!--![PAKET Commands](images/paket-cmds.png)-->
 <img src="images/paket-cmds.png" style="background: transparent; border-style: none;" width=600 />
 </section>
 <section >
@@ -179,13 +185,15 @@ http://fsprojects.github.io/Paket/paket-simplify.html#Sample<br/>
 <span class="l">16: </span>
 <span class="l">17: </span>
 <span class="l">18: </span>
+<span class="l">19: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">source</span> <span class="i">https</span><span class="o">:</span><span class="c">//dotnet.myget.org/F/dotnet-core/api/v3/index.json</span>
 
 <span class="c">// Reference a nuget package</span>
 <span class="i">nuget</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">FSharp</span><span class="o">.</span><span class="i">Management</span>
 <span class="c">// Reference a single file from GitHub</span>
-<span class="i">github</span> <span class="i">myRepo</span><span class="o">/</span><span class="i">aProject</span> <span class="i">dependency</span><span class="o">.</span><span class="i">dll</span> 
+<span class="i">github</span> <span class="i">myRepo</span><span class="o">/</span><span class="i">aProject</span> <span class="i">dependency</span><span class="o">.</span><span class="i">dll</span>
+<span class="i">github</span> <span class="i">forki</span><span class="o">/</span><span class="i">FsUnit</span> <span class="i">FsUnit</span><span class="o">.</span><span class="i">fs</span>
 
 <span class="c">// Shared dependencies</span>
 <span class="i">nuget</span> <span class="i">Newtonsoft</span><span class="o">.</span><span class="i">Json</span>
@@ -201,6 +209,9 @@ http://fsprojects.github.io/Paket/paket-simplify.html#Sample<br/>
 </code></pre></td>
 </tr>
 </table>
+<aside class="notes">
+here's an example of ou to reference directly a dll from github or a script<br/>
+</aside>
 </section>
 <section >
 <h3>List of used versions for all dependencies</h3>
@@ -242,7 +253,7 @@ http://fsprojects.github.io/Paket/paket-simplify.html#Sample<br/>
 </section>
 <section >
 <h3>Package definition for new packages</h3>
-<p><strong>paket.template</strong> replaces the need for nuspec file</p>
+<p><strong>paket.template</strong> replaces the need for .nuspec file</p>
 <table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
 <span class="l">2: </span>
 <span class="l">3: </span>
@@ -285,6 +296,7 @@ http://fsprojects.github.io/Paket/paket-simplify.html#Sample<br/>
 </aside></p>
 <h3>DEMO</h3>
 <p><img src="images/demo.jpeg" alt="PAKET" /></p>
+<p><a href="https://gist.github.com/marcio-azevedo/9576969640a404fd2944aab89117d212">Gists</a></p>
 </section>
 <section >
 <section >
