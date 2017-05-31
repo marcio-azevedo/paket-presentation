@@ -32,7 +32,9 @@ Back in the old days...
 
 But then, there was a new problem...
 
-<img src="images/nuget-hell.png" style="background: transparent; border-style: none;" width=450 />
+<!--<img src="images/nuget-hell.png" style="background: transparent; border-style: none;" width=450 />-->
+
+![NuGetHell](images/nuget-hell.png)
 
 ' instead of DLL Hell, there was...
 ' ...and it's still a problem as we know at Basecone...
@@ -61,10 +63,11 @@ But then, there was a new problem...
 ---
 
 ' Here's some problems with NuGet command tool
+## Known problems
 ### NuGet (the command tool) has no concept of transitive dependencies
 
 <img src="images/masstransit-dependencies.png" style="background: transparent; border-style: none;" width=300 />
-<img src="images/package.config.png" style="background: transparent; border-style: none;" width=300 />
+<img src="images/package.config.png" style="background: transparent; border-style: none;" width=550 />
 
 ---
 
@@ -73,7 +76,9 @@ But then, there was a new problem...
 <img src="images/package-version-in-path.png" style="background: transparent; border-style: none;" width=450 />
 <img src="images/package-version-in-path1.png" style="background: transparent; border-style: none;" width=450 />
 
-' Problems: path to packages changes at every update, code reviews are harder because you're always updating .csproj files, etc
+' Problems: - path to packages changes at every update
+' - code reviews are harder because you're always updating .csproj files
+' - makes it very easy to have several versions of the same package in the same solution
 
 ---
 
@@ -81,7 +86,9 @@ But then, there was a new problem...
 
 ![NuGet](images/csproj-references.png)
 
-How PAKET does it:
+
+How PAKET does it?
+
 
 ![PAKET](images/csproj-paket-references.png)
 
@@ -110,14 +117,18 @@ Plan to implement [SemVer 2.0.0 support](https://github.com/NuGet/Home/wiki/SemV
 
 ' Main components
 ' http://fsprojects.github.io/Paket/paket-simplify.html#Sample
+' open example C:\code\Basecone-BackOffice\.paket
 
 ---
 
-### Paket.exe (~/.paket directory in root)
+#### Paket.exe (.paket directory in root)
 
 ```sh
 $ .paket\paket.exe --help
 ```
+[PAKET Commands](https://fsprojects.github.io/Paket//paket-add.html)
+
+<!--![PAKET Commands](images/paket-cmds.png)-->
 
 <img src="images/paket-cmds.png" style="background: transparent; border-style: none;" width=600 />
 
@@ -131,7 +142,8 @@ $ .paket\paket.exe --help
     // Reference a nuget package
     nuget FSharp.Management
     // Reference a single file from GitHub
-    github myRepo/aProject dependency.dll 
+    github myRepo/aProject dependency.dll
+    github forki/FsUnit FsUnit.fs
 
     // Shared dependencies
     nuget Newtonsoft.Json
@@ -144,6 +156,8 @@ $ .paket\paket.exe --help
     group Database
         nuget FluentMigrator
         nuget SQLProvider
+
+' here's an example of ou to reference directly a dll from github or a script
 
 ---
 
