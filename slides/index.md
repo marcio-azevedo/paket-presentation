@@ -37,7 +37,7 @@ But then, there was a new problem...
 ![NuGetHell](images/nuget-hell.png)
 
 ' instead of DLL Hell, there was...
-' ...and it's still a problem as we know at Basecone...
+' ...and it's still a problem as we know...
 ' Note: NuGet (the command tool) works well for simple, small projects, not for complex and large ones!
 
 ---
@@ -117,7 +117,7 @@ Plan to implement [SemVer 2.0.0 support](https://github.com/NuGet/Home/wiki/SemV
 
 ' Main components
 ' http://fsprojects.github.io/Paket/paket-simplify.html#Sample
-' open example C:\code\Basecone-BackOffice\.paket
+' open BackOffice example
 
 ---
 
