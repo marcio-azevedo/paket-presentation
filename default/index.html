@@ -186,6 +186,7 @@ open example C:\code\Basecone-BackOffice\.paket<br/>
 <span class="l">17: </span>
 <span class="l">18: </span>
 <span class="l">19: </span>
+<span class="l">20: </span>
 </pre></td>
 <td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="i">source</span> <span class="i">https</span><span class="o">:</span><span class="c">//dotnet.myget.org/F/dotnet-core/api/v3/index.json</span>
 
@@ -194,6 +195,7 @@ open example C:\code\Basecone-BackOffice\.paket<br/>
 <span class="c">// Reference a single file from GitHub</span>
 <span class="i">github</span> <span class="i">myRepo</span><span class="o">/</span><span class="i">aProject</span> <span class="i">dependency</span><span class="o">.</span><span class="i">dll</span>
 <span class="i">github</span> <span class="i">forki</span><span class="o">/</span><span class="i">FsUnit</span> <span class="i">FsUnit</span><span class="o">.</span><span class="i">fs</span>
+<span class="i">File</span><span class="o">:</span><span class="i">FsUnit</span><span class="o">.</span><span class="i">fs</span>
 
 <span class="c">// Shared dependencies</span>
 <span class="i">nuget</span> <span class="i">Newtonsoft</span><span class="o">.</span><span class="i">Json</span>
@@ -211,6 +213,8 @@ open example C:\code\Basecone-BackOffice\.paket<br/>
 </table>
 <aside class="notes">
 here's an example of ou to reference directly a dll from github or a script<br/>
+Reference multiple sources (NuGet, MyGet, Github, private NuGet servers, any HTTP resource!)<br/>
+ok, NuGet can do that as well, but how about reference directly HTTP resources?<br/>
 </aside>
 </section>
 <section >
@@ -324,6 +328,9 @@ here's an example of ou to reference directly a dll from github or a script<br/>
 </ul>
 <aside class="notes">
 ![PAKET](images/qa.jpeg)<br/>
+yes, it's possible to have different versions for the same package - https://russcam.github.io/paket-fake-talk/#/same-dependency<br/>
+Global view of dependencies - used where and by whom? (NuGet has no global view of your dependencies)<br/>
+Package Dependency Resolution<br/>
 </aside>
 </section>
 </section>
