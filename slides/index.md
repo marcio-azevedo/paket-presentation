@@ -144,6 +144,7 @@ $ .paket\paket.exe --help
     // Reference a single file from GitHub
     github myRepo/aProject dependency.dll
     github forki/FsUnit FsUnit.fs
+    File:FsUnit.fs
 
     // Shared dependencies
     nuget Newtonsoft.Json
@@ -158,6 +159,8 @@ $ .paket\paket.exe --help
         nuget SQLProvider
 
 ' here's an example of ou to reference directly a dll from github or a script
+' Reference multiple sources (NuGet, MyGet, Github, private NuGet servers, any HTTP resource!)
+' ok, NuGet can do that as well, but how about reference directly HTTP resources?
 
 ---
 
@@ -247,6 +250,9 @@ There's also a VS extension - [Paket.VisualStudio](https://github.com/hmemcpy/Pa
 * Create a nice community
 
 ' ![PAKET](images/qa.jpeg)
+' yes, it's possible to have different versions for the same package - https://russcam.github.io/paket-fake-talk/#/same-dependency
+' Global view of dependencies - used where and by whom? (NuGet has no global view of your dependencies)
+' Package Dependency Resolution
 
 ***
 
